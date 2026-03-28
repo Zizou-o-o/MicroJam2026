@@ -26,7 +26,7 @@ public class FallingLogic : MonoBehaviour
             Destroy(gameObject);
         }
         //clean up if it misses sam and falls off screen
-        if(transform.position.y < -6f){
+        if(transform.position.y < -11f){
             Destroy(gameObject);
         }
         

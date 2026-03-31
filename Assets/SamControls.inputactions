@@ -56,6 +56,61 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "f73e71ee-3844-43f9-8832-1ae08a3615d2",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "0342e5ad-4744-4f00-b2b6-90855267b681",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2e231a46-292d-4445-a985-d0ef752c749c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d0080a12-0502-4696-bc4a-9acfcb4378d3",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7953c37a-9926-4b30-acc9-42679e8b8f6f",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "ArrowKeys",
                     "id": "83bd61a5-65d7-4f99-997f-c5c4db28b904",
                     "path": "2DVector",
@@ -113,7 +168,7 @@
                 {
                     "name": "",
                     "id": "de14e452-6f88-4c96-8260-af2a7c585d7b",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/E",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -124,7 +179,7 @@
                 {
                     "name": "",
                     "id": "99a34cf9-de4e-46e6-9daa-38729fc81dea",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

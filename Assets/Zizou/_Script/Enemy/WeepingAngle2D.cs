@@ -82,7 +82,7 @@ public class WeepingAngele2D : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            OnReachPlayer(col.gameObject);
+            OnReachPlayer();
         }
     }
 
@@ -90,16 +90,13 @@ public class WeepingAngele2D : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            OnReachPlayer(col.gameObject);
+            OnReachPlayer();
         }
     }
 
-    void OnReachPlayer(GameObject playerObj)
+    void OnReachPlayer()
     {
-        
-        Debug.Log("Angel got you! Game Over.");
-        //her we add the game over thingy
-
+        FindFirstObjectByType<AngelMinigame>()?.OnPlayerCaught();
     }
 
     void OnDrawGizmos()

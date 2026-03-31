@@ -2,82 +2,62 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    [Header("References")]
-    public PlayerMovement player; 
-
     [Header("Cone Settings")]
-    [Range(10f, 120f)]
-    public float coneAngle = 60f;       // full angle of the flashlight cone
-    public float coneRange = 8f;        // how far the light reaches
+    [Range(10f, 120f)] public float coneAngle = 60f;
+    public float coneRange = 8f;
 
-    void Awake()
-    {
-        if (player == null)
-            player = GetComponentInParent<PlayerMovement>();
-    }
+    private Vector2 facingDirection = Vector2.right;
 
     void Update()
     {
-        RotateToFacing();
+        RotateToMouse();
     }
 
-    void RotateToFacing()
+    void RotateToMouse()
     {
-        Vector2 dir = player.facingDirection;
-        if (dir == Vector2.zero) return;
+        // Get mouse position in world space
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0f;
 
-        // Convert direction to angle
+        // Direction from flashlight to mouse
+        Vector2 dir = (mouseWorld - transform.position).normalized;
+        facingDirection = dir;
+
+        // Rotate flashlight to face mouse
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
-
-  
     public bool IsInCone(Vector2 targetPosition)
     {
-        Vector2 origin = (Vector2)transform.position;
-        Vector2 toTarget = targetPosition - origin;
-
-        // Distance check
+        Vector2 toTarget = targetPosition - (Vector2)transform.position;
         if (toTarget.magnitude > coneRange) return false;
-
-        // Angle check
-        float angleToTarget = Vector2.Angle(player.facingDirection, toTarget);
-        return angleToTarget <= coneAngle / 2f;
+        return Vector2.Angle(facingDirection, toTarget) <= coneAngle / 2f;
     }
 
-    // ---------------------------------------------------------------
-    // Optional: Draw the cone in the Scene view for easy debugging
-    // ---------------------------------------------------------------
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
-        if (player == null) return;
-
         Vector2 origin = transform.position;
-        Vector2 dir = player.facingDirection == Vector2.zero ? Vector2.right : player.facingDirection;
-
-        float halfAngle = coneAngle / 2f;
+        Vector2 dir = facingDirection == Vector2.zero ? Vector2.right : facingDirection;
         float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        Vector2 leftEdge = AngleToDir(baseAngle - halfAngle) * coneRange;
-        Vector2 rightEdge = AngleToDir(baseAngle + halfAngle) * coneRange;
+        float half = coneAngle / 2f;
 
         Gizmos.color = new Color(1f, 1f, 0f, 0.4f);
-        Gizmos.DrawLine(origin, origin + leftEdge);
-        Gizmos.DrawLine(origin, origin + rightEdge);
-        // Draw arc approximation
+        Gizmos.DrawLine(origin, origin + DirFromAngle(baseAngle - half) * coneRange);
+        Gizmos.DrawLine(origin, origin + DirFromAngle(baseAngle + half) * coneRange);
+
         int steps = 20;
         for (int i = 0; i < steps; i++)
         {
-            float a1 = baseAngle - halfAngle + (coneAngle / steps) * i;
-            float a2 = baseAngle - halfAngle + (coneAngle / steps) * (i + 1);
-            Gizmos.DrawLine(origin + AngleToDir(a1) * coneRange,
-                            origin + AngleToDir(a2) * coneRange);
+            float a1 = baseAngle - half + (coneAngle / steps) * i;
+            float a2 = baseAngle - half + (coneAngle / steps) * (i + 1);
+            Gizmos.DrawLine(origin + DirFromAngle(a1) * coneRange,
+                            origin + DirFromAngle(a2) * coneRange);
         }
     }
 
-    Vector2 AngleToDir(float degrees)
+    Vector2 DirFromAngle(float deg)
     {
-        float rad = degrees * Mathf.Deg2Rad;
+        float rad = deg * Mathf.Deg2Rad;
         return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
     }
 }

@@ -951,14 +951,14 @@ MonoBehaviour:
   hallway2Scene: Hallway2
   hallway3Scene: Hallway3
   hallway4Scene: Hallway4
-  mg1_loop1: AngleRoom
-  mg2_loop1: Ghosts_room
+  mg1_loop1: Ghosts_room
+  mg2_loop1: AngleRoom
   mg3_loop1: SampleScene
-  mg1_loop2: AngleRoom 2
-  mg2_loop2: Ghosts_room 1
+  mg1_loop2: Ghosts_room 1
+  mg2_loop2: AngleRoom 2
   mg3_loop2: SampleScene 1
-  mg1_loop3: AngleRoom 3
-  mg2_loop3: Ghosts_room 3
+  mg1_loop3: Ghosts_room 3
+  mg2_loop3: AngleRoom 3
   mg3_loop3: SampleScene 3
   cutsceneScene: Cutscene
   currentHallway: 1

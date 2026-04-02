@@ -6,36 +6,37 @@ using UnityEngine.UI;
 public class AngelRoomEvent : MonoBehaviour
 {
     [Header("Timing")]
-    public float timeBeforeEvent = 25f;   // seconds before blackout starts
+    public float timeBeforeEvent = 25f;
 
     [Header("Flicker Settings")]
-    public int flickerCount = 6;     // how many times it flickers
-    public float flickerSpeed = 0.08f; // how fast each flicker is
+    public int flickerCount = 6;
+    public float flickerSpeed = 0.08f;
 
     [Header("Blackout")]
-    public float blackoutDuration = 1.2f; // how long it stays fully black
+    public float blackoutDuration = 1.2f;
 
     [Header("UI — Black Overlay")]
-    public Image blackOverlay;            // full screen black UI image
+    public Image blackOverlay;
 
-    [Header("Corner Positions (assign 4 empty GameObjects)")]
+    [Header("Corner Positions")]
     public Transform cornerTopLeft;
     public Transform cornerTopRight;
     public Transform cornerBottomLeft;
     public Transform cornerBottomRight;
 
     [Header("Angels in the scene")]
-    public WeepingAngele2D[] angels;        
+    public WeepingAngele2D[] angels;
+
+    // FlashlightDarkness listens to this to enable darkness after blackout
+    public event System.Action OnBlackoutEnd;
 
     private bool eventTriggered = false;
 
     void Start()
     {
-        // Make sure overlay starts invisible
         if (blackOverlay != null)
             SetOverlayAlpha(0f);
 
-        // Auto find angels if not assigned
         if (angels == null || angels.Length == 0)
             angels = FindObjectsByType<WeepingAngele2D>(FindObjectsSortMode.None);
 
@@ -51,53 +52,48 @@ public class AngelRoomEvent : MonoBehaviour
 
     IEnumerator BlackoutSequence()
     {
-        // ── Phase 1: Flicker like a failing light ──
+        // Phase 1: Flicker
         for (int i = 0; i < flickerCount; i++)
         {
-            SetOverlayAlpha(1f); // lights off
+            SetOverlayAlpha(1f);
             yield return new WaitForSeconds(flickerSpeed);
-            SetOverlayAlpha(0f); // lights on
+            SetOverlayAlpha(0f);
             yield return new WaitForSeconds(flickerSpeed);
         }
 
-        // Full blackout ──
+        // Phase 2: Full blackout
         SetOverlayAlpha(1f);
         yield return new WaitForSeconds(blackoutDuration);
 
-        // Teleport angels to corners while screen is black ──
+        // Phase 3: Teleport angels to corners while black
         TeleportAngelsToCorders();
 
-        // Small pause then lights back on ──
+        // Phase 4: Lights back on
         yield return new WaitForSeconds(0.3f);
         SetOverlayAlpha(0f);
+
+        // Phase 5: Fire event — darkness mode starts now
+        OnBlackoutEnd?.Invoke();
     }
 
     void TeleportAngelsToCorders()
     {
         if (angels == null || angels.Length == 0) return;
 
-        // Build corner list
         List<Transform> corners = new List<Transform>();
         if (cornerTopLeft != null) corners.Add(cornerTopLeft);
         if (cornerTopRight != null) corners.Add(cornerTopRight);
         if (cornerBottomLeft != null) corners.Add(cornerBottomLeft);
         if (cornerBottomRight != null) corners.Add(cornerBottomRight);
 
-        if (corners.Count == 0)
-        {
-            Debug.LogWarning("[AngelRoomEvent] No corners assigned!");
-            return;
-        }
+        if (corners.Count == 0) { Debug.LogWarning("[AngelRoomEvent] No corners assigned!"); return; }
 
-        // Shuffle corners so assignment is random each time
         ShuffleList(corners);
 
-        // Assign one angel per corner — max 4 angels
         for (int i = 0; i < angels.Length; i++)
         {
             if (angels[i] == null) continue;
-            Transform corner = corners[i % corners.Count];
-            angels[i].transform.position = corner.position;
+            angels[i].transform.position = corners[i % corners.Count].position;
         }
 
         Debug.Log($"[AngelRoomEvent] Teleported {angels.Length} angel(s) to corners!");
@@ -122,7 +118,6 @@ public class AngelRoomEvent : MonoBehaviour
         }
     }
 
-    // Draw corners in scene view so you can see them
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

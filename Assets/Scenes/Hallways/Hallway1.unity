@@ -952,7 +952,7 @@ MonoBehaviour:
   hallway3Scene: Hallway3
   hallway4Scene: Hallway4
   mg1_loop1: Ghosts_room
-  mg2_loop1: AngleRoom
+  mg2_loop1: AngleRoom 1
   mg3_loop1: SampleScene
   mg1_loop2: Ghosts_room 1
   mg2_loop2: AngleRoom 2

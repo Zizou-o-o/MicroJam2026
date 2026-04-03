@@ -2,10 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
 public class GeneratorCore : MonoBehaviour
 {
-    
     [Header("Timers")]
     public float timeToFix = 30f;
     public float timeBetweenBreaks = 20f;
@@ -14,80 +12,105 @@ public class GeneratorCore : MonoBehaviour
     [Header("Progression")]
     public int totalRepairsNeeded = 3;
     public int RepairsDone = 0;
-
-    private bool isBroken = true; // starts broken
+    private bool isBroken = true;
     private bool hasWon = false;
-  
+
     public TextMeshProUGUI machineStatusText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         currentTimer = timeToFix;
-       
-       
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-        if(hasWon) return;
-        currentTimer-=Time.deltaTime;
+        if (hasWon) return;
 
-        //generator is broken
-        if(isBroken){
-            if(machineStatusText)
-             machineStatusText.text = "CRITICAL FAILURE!\nTIME LEFT: " + Mathf.CeilToInt(currentTimer) + "s\nGOAL: "+ RepairsDone+"/"+totalRepairsNeeded;
-            if(currentTimer <= 0){
-                Debug.Log("Boom! GameOver");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        currentTimer -= Time.deltaTime;
 
-        
-            } 
+        if (isBroken)
+        {
+            if (machineStatusText)
+                machineStatusText.text = "CRITICAL FAILURE!\nTIME LEFT: " + Mathf.CeilToInt(currentTimer) + "s\nGOAL: " + RepairsDone + "/" + totalRepairsNeeded;
+
+            if (currentTimer <= 0)
+            {
+                GameOver();
+            }
         }
-        //phase two generator is working
-        else{
-            if(machineStatusText)
-             machineStatusText.text = "SYSTEM STABLE..\nBREAKING IN: "+Mathf.CeilToInt(currentTimer) + "s";
-            if(currentTimer <= 0){
+        else
+        {
+            if (machineStatusText)
+                machineStatusText.text = "SYSTEM STABLE..\nBREAKING IN: " + Mathf.CeilToInt(currentTimer) + "s";
+
+            if (currentTimer <= 0)
+            {
                 BreakAgain();
-            } 
-        }
-      
-        
-    }
-
-    public void Repair(SamController sam){
-
-        if(isBroken && sam.hasVicePart){
-            sam.hasVicePart= false;
-            RepairsDone ++ ;
-
-            if(RepairsDone >= totalRepairsNeeded){
-                WinGame();
-            } else{
-                //fix successful start the 20s timer
-                isBroken =false;
-                currentTimer = timeBetweenBreaks;
-                if(machineStatusText) machineStatusText.text = "REPAIRED! STAY ALERT..";
             }
         }
     }
-    void BreakAgain(){
+
+    public void Repair(SamController sam)
+    {
+        if (isBroken && sam.hasVicePart)
+        {
+            sam.hasVicePart = false;
+            RepairsDone++;
+
+            if (RepairsDone >= totalRepairsNeeded)
+            {
+                WinGame();
+            }
+            else
+            {
+                isBroken = false;
+                currentTimer = timeBetweenBreaks;
+                if (machineStatusText) machineStatusText.text = "REPAIRED! STAY ALERT..";
+            }
+        }
+    }
+
+    void BreakAgain()
+    {
         isBroken = true;
         currentTimer = timeToFix;
-        Debug.Log("generator has failed again");
+        Debug.Log("Generator has failed again");
     }
-    
 
-    void WinGame(){
+    void WinGame()
+    {
         hasWon = true;
-        if(machineStatusText) machineStatusText.text = "CORE STABILIZED YOU WON!";
 
-        // stop the monster 
+        if (machineStatusText) machineStatusText.text = "CORE STABILIZED! YOU WON!";
+
+        // Stop the monster
         GameObject monster = GameObject.FindWithTag("Enemy");
-        if(monster != null ) monster.SetActive(false);
+        if (monster != null) monster.SetActive(false);
+
+        // Return to hallway after 2 seconds
+        Invoke(nameof(ReturnToHallway), 2f);
     }
 
-    
+    void GameOver()
+    {
+        Debug.Log("Game Over!");
+
+        if (machineStatusText) machineStatusText.text = "SYSTEM FAILURE!\nGAME OVER";
+
+        // Restart this minigame scene after 2 seconds
+        Invoke(nameof(RestartScene), 2f);
+    }
+
+    void ReturnToHallway()
+    {
+        if (GameManager1.Instance != null)
+            GameManager1.Instance.OnMinigameWon(); // go back to hallway
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // fallback
+    }
+
+    void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

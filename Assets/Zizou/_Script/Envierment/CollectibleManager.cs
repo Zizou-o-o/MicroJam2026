@@ -82,9 +82,7 @@ public class CollectibleManager : MonoBehaviour
     }
     void OnAllCollected()
     {
-        Debug.Log("All collectibles gathered! You win!");
-
-        //add in here where it take the player to after winning
+        FindFirstObjectByType<AngelMinigame>()?.OnAllCollected();
     }
 
     //toshow the spawing area

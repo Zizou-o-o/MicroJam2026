@@ -80,8 +80,6 @@ public class GhostFollower : MonoBehaviour
         Vector2 direction = ((Vector2)Player.position - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * speed;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.SetRotation(angle);
     }
 
     void StartDash()

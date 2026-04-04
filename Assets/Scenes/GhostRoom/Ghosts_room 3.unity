@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 134622072}
   - component: {fileID: 134622071}
   - component: {fileID: 134622070}
+  - component: {fileID: 134622075}
   m_Layer: 0
   m_Name: Ghost (2)
   m_TagString: Untagged
@@ -149,11 +150,11 @@ Transform:
   m_GameObject: {fileID: 134622068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.7, z: 0}
+  m_LocalPosition: {x: -8.69, y: 5.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 462546901}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &134622070
 MonoBehaviour:
@@ -180,7 +181,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Player: {fileID: 1502405894}
-  speed: 3
+  speed: 4
+  dashTriggerDistance: 10
+  dashSpeed: 24
+  dashDuration: 0.7
+  dashCooldown: 3
+  dashLine: {fileID: 0}
+  lineDisplayTime: 0.12
 --- !u!58 &134622072
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -303,6 +310,42 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!58 &134622075
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134622068}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &167577523
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +775,7 @@ GameObject:
   - component: {fileID: 462546898}
   - component: {fileID: 462546897}
   - component: {fileID: 462546902}
+  - component: {fileID: 462546903}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -752,7 +796,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Player: {fileID: 1502405894}
-  speed: 3
+  speed: 4
+  dashTriggerDistance: 10
+  dashSpeed: 24
+  dashDuration: 0.7
+  dashCooldown: 3
+  dashLine: {fileID: 0}
+  lineDisplayTime: 0.12
 --- !u!58 &462546898
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -884,12 +934,10 @@ Transform:
   m_GameObject: {fileID: 462546896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.69, y: -4.1, z: 0}
+  m_LocalPosition: {x: 9.2, y: 5.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1016507371}
-  - {fileID: 134622069}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &462546902
@@ -904,6 +952,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14bf226288642d940ab9a59dedf3a9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!58 &462546903
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462546896}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &659662229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1402,8 @@ GameObject:
   - component: {fileID: 1016507374}
   - component: {fileID: 1016507373}
   - component: {fileID: 1016507372}
+  - component: {fileID: 1016507377}
+  - component: {fileID: 1016507378}
   m_Layer: 0
   m_Name: Ghost (1)
   m_TagString: Untagged
@@ -1334,11 +1420,11 @@ Transform:
   m_GameObject: {fileID: 1016507370}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.689999, y: 0, z: 0}
+  m_LocalPosition: {x: 11.6, y: -5.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 462546901}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016507372
 MonoBehaviour:
@@ -1365,7 +1451,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Player: {fileID: 1502405894}
-  speed: 3
+  speed: 4
+  dashTriggerDistance: 10
+  dashSpeed: 24
+  dashDuration: 0.7
+  dashCooldown: 3
+  dashLine: {fileID: 0}
+  lineDisplayTime: 0.12
 --- !u!58 &1016507374
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1488,6 +1580,78 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!58 &1016507377
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016507370}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!58 &1016507378
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016507370}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1191432005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,7 +2633,7 @@ SpriteRenderer:
   m_SortingOrder: -10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.11774653, g: 0.9245283, b: 0.11774653, a: 0}
+  m_Color: {r: 0.029896643, g: 0.83396226, b: 0.029896643, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2689,7 +2853,9 @@ SceneRoots:
   - {fileID: 1513627721}
   - {fileID: 738948815}
   - {fileID: 2061259178}
-  - {fileID: 462546901}
   - {fileID: 830013306}
   - {fileID: 1227124168}
   - {fileID: 709871970}
+  - {fileID: 1016507371}
+  - {fileID: 134622069}
+  - {fileID: 462546901}

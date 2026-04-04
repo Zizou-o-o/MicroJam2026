@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/AngelRoomMinigame/AngleRoom 3.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/GhostRoom/Ghosts_room 1.unity
+    path: Assets/Scenes/Ghosts_room.unity
     guid: 03d3ce384ab6cf24eaf79035b55a4169
   - enabled: 1
     path: Assets/Scenes/GhostRoom/Ghosts_room 1.unity

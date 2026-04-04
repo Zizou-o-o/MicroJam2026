@@ -7,6 +7,9 @@ public class VoiceManager : MonoBehaviour
     public AudioSource voiceSource;
     public AudioSource hallAmbience;
 
+    public AudioSource miniGameSource ;//dedicatedfor first mini game ghost room
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,5 +54,23 @@ public class VoiceManager : MonoBehaviour
         {
             hallAmbience.Stop();
         }
+    }
+
+    public void SetMiniGameMusic(AudioClip gameMusic , bool active)
+    {
+        if(miniGameSource == null) return;
+        if(active && gameMusic != null)
+        {
+            miniGameSource.clip = gameMusic;
+            miniGameSource.loop = true; 
+            miniGameSource.Play();
+        }
+        else
+        {
+            miniGameSource.Stop();
+        }
+
+
+
     }
 }

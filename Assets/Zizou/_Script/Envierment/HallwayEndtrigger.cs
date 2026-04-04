@@ -4,6 +4,18 @@ public class HallwayEndTrigger : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        //voice addition teleport
+        if(VoiceManager.instance != null)
+        {
+            VoiceManager.instance.PlayerTeleport();
+            
+        }
+
+
+
+
+
         if (!other.CompareTag("Player")) return;
         if (GameManager1.Instance == null) return;
 

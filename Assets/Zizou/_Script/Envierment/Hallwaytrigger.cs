@@ -14,6 +14,16 @@ public class HallwayTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        
+        // voice teleportation
+        if(VoiceManager.instance != null)
+        {
+            VoiceManager.instance.PlayerTeleport();
+        }
+
+
+
         if (hasTriggered) return;
         if (!other.CompareTag("Player")) return;
         if (GameManager1.Instance == null) return;

@@ -47,6 +47,11 @@ public class GameManager1 : MonoBehaviour
     //the trigger that take the player to the other minigames
     public void EnterMinigame(int minigameNumber)
     {
+        //voice add
+        if(VoiceManager.instance != null)
+        {
+            VoiceManager.instance.SetHallwayAmbience(false);
+        }
         Debug.Log($"[GameManager] Entering Minigame {minigameNumber} | Hallway {currentHallway}");
         SceneManager.LoadScene(GetMinigameScene(currentHallway, minigameNumber));
     }
@@ -65,6 +70,18 @@ public class GameManager1 : MonoBehaviour
     //check what minigame he finished
     public void OnMinigameWon()
     {
+
+        //voice add teleport
+        if(VoiceManager.instance!= null)
+        {
+            VoiceManager.instance.PlayerTeleport();
+
+        }
+
+
+
+
+
         minigamesWonThisHallway++;
         Debug.Log($"[GameManager] Minigame won! ({minigamesWonThisHallway}/3 in Hallway {currentHallway})");
         LoadCurrentHallway();
@@ -97,6 +114,12 @@ public class GameManager1 : MonoBehaviour
 
     void LoadCurrentHallway()
     {
+
+        //voice addition
+        if(VoiceManager.instance != null)
+        {
+            VoiceManager.instance.SetHallwayAmbience(true);
+        }
         switch (currentHallway)
         {
             case 1: SceneManager.LoadScene(hallway1Scene); break;

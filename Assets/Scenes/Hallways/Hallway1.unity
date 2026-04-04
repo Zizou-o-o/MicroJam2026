@@ -3542,10 +3542,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager1
   hallway1Scene: Hallway1
-  hallway2Scene: Hallway2
+  hallway2Scene: Hallway1
   hallway3Scene: Hallway3
   hallway4Scene: Hallway4
-  mg1_loop1: Ghosts_room
+  mg1_loop1: Ghosts_room 1
   mg2_loop1: AngleRoom
   mg3_loop1: SampleScene
   mg1_loop2: Ghosts_room 1

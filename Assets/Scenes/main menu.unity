@@ -269,44 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86832f84a0cf34eb9b89129d49b7a15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startConfig: {fileID: 11400000, guid: b47c144ea905e432bbce43fbef5b4644, type: 2}
-  crtRenderSettings: {fileID: 11400000, guid: 2d929546960894d169f1999a321e4ff4, type: 2}
-  _runtimeMaterial: {fileID: 0}
-  data:
-    pixelationAmount: 5
-    maxColorChannels:
-      red: 2
-      green: 2
-      blue: 2
-      greyScale: 0
-    dithering4: 0
-    dithering8: 0.351
-    vignette: 0.561
-    innerCurve: 2.51
-    monitorCurve: 0.083
-    monitorInnerSize:
-      width: 0
-      height: 0
-    monitorOutterSize:
-      width: 0.13
-      height: 0.137
-    zoom: 1.222
-    monitorRoundness: 0.2
-    monitorTexture: {fileID: 2800000, guid: a5e897f9f29eb488ba4791cd52d004b5, type: 3}
-    monitorColor:
-      r: 0.13950695
-      g: 0.14944103
-      b: 0.31132078
-      a: 0.34117648
-    innerMonitorDarkness: 0.256
-    innerMonitorShine: 0.171
-    colorScans:
-      greenChannelMultiplier: -0.212
-      redBlueChannelMultiplier: -0.044
-      sizeMultiplier: 0.51
-    innerMonitorShineRadius: -0.087
-    innerMonitorShineCurve: 10
-  lastValidationId: 0b41aeef-004a-43e8-ab9c-d9caa7fdc3f4
 --- !u!1 &319263198
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +340,7 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 0
-  m_Looping: 0
+  m_Looping: 1
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
@@ -836,9 +798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5812d23a14c917746b273c9158d210a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  logo: {fileID: 0}
-  minDelay: 1
-  maxDelay: 5
 --- !u!1 &1561068833
 GameObject:
   m_ObjectHideFlags: 0

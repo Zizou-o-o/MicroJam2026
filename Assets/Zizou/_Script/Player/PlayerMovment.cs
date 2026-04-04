@@ -32,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");  
 
         Vector2 moveDir = new Vector2(h, v).normalized;
+        if (moveDir.magnitude > 0) {
+            animator.SetBool("walk", true);
+        }
+        else
+        {
+            animator.SetBool("walk", false);
+        }
+
 
         rb.linearVelocity = moveDir * moveSpeed;
 

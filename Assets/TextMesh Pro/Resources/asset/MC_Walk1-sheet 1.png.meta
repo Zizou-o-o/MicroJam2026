@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: e8d5fb15c5c1a0540b37b81b849c6447
+guid: de9054505fd3bad4f8b121ff00504c55
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7437685092641353733
-    second: main menu_0
+      213: 2295736932260767695
+    second: MC_Walk1-sheet 1_0
   - first:
-      213: 9134850749059203067
-    second: main menu_1
+      213: 1558351979242959115
+    second: MC_Walk1-sheet 1_1
   - first:
-      213: 4356928732326779206
-    second: main menu_2
+      213: -3140454450603902681
+    second: MC_Walk1-sheet 1_2
   - first:
-      213: -5922356773251201222
-    second: main menu_3
+      213: 836199761194912589
+    second: MC_Walk1-sheet 1_3
   - first:
-      213: -1387997548284674578
-    second: main menu_4
+      213: 1422180742479213449
+    second: MC_Walk1-sheet 1_4
   - first:
-      213: -7956419873832106417
-    second: main menu_5
+      213: -3852776781563079368
+    second: MC_Walk1-sheet 1_5
+  - first:
+      213: -6961944289289195363
+    second: MC_Walk1-sheet 1_6
+  - first:
+      213: 7834586675325454004
+    second: MC_Walk1-sheet 1_7
+  - first:
+      213: -5521036290782549885
+    second: MC_Walk1-sheet 1_8
+  - first:
+      213: -1706772309439905940
+    second: MC_Walk1-sheet 1_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: main menu_0
+      name: MC_Walk1-sheet 1_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 7
-        width: 660
-        height: 354
+        x: 131
+        y: 101
+        width: 284
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5003b1a6f27f73760800000000000000
-      internalID: 7437685092641353733
+      spriteID: fc7e52993981cdf10800000000000000
+      internalID: 2295736932260767695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main menu_1
+      name: MC_Walk1-sheet 1_1
       rect:
         serializedVersion: 2
-        x: 147
-        y: 41
-        width: 203
-        height: 128
+        x: 694
+        y: 101
+        width: 284
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bff72e59b5285ce70800000000000000
-      internalID: 9134850749059203067
+      spriteID: b01bdcd5ed060a510800000000000000
+      internalID: 1558351979242959115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main menu_2
+      name: MC_Walk1-sheet 1_2
       rect:
         serializedVersion: 2
-        x: 294
-        y: 29
-        width: 154
-        height: 169
+        x: 1257
+        y: 101
+        width: 284
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 649d70a199be67c30800000000000000
-      internalID: 4356928732326779206
+      spriteID: 729b576e05dda64d0800000000000000
+      internalID: -3140454450603902681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main menu_3
+      name: MC_Walk1-sheet 1_3
       rect:
         serializedVersion: 2
-        x: 374
-        y: 128
-        width: 42
-        height: 71
+        x: 1820
+        y: 101
+        width: 284
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a37cb3984ef8fcda0800000000000000
-      internalID: -5922356773251201222
+      spriteID: d4b0a4f9047ca9b00800000000000000
+      internalID: 836199761194912589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main menu_4
+      name: MC_Walk1-sheet 1_4
       rect:
         serializedVersion: 2
-        x: 416
-        y: 68
-        width: 123
-        height: 131
+        x: 2383
+        y: 101
+        width: 284
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eedf0617597dcbce0800000000000000
-      internalID: -1387997548284674578
+      spriteID: 983ffd9a9d99cb310800000000000000
+      internalID: 1422180742479213449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main menu_5
+      name: MC_Walk1-sheet 1_5
       rect:
         serializedVersion: 2
-        x: 483
-        y: 42
-        width: 207
-        height: 126
+        x: 2946
+        y: 101
+        width: 284
+        height: 498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +252,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f460168974e159190800000000000000
-      internalID: -7956419873832106417
+      spriteID: 8355f081eef288ac0800000000000000
+      internalID: -3852776781563079368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Walk1-sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 3509
+        y: 101
+        width: 284
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90bbda0e84326f90800000000000000
+      internalID: -6961944289289195363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Walk1-sheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 101
+        width: 284
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b648c0621b0abc60800000000000000
+      internalID: 7834586675325454004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Walk1-sheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 4635
+        y: 101
+        width: 284
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388add7ceb65163b0800000000000000
+      internalID: -5521036290782549885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC_Walk1-sheet 1_9
+      rect:
+        serializedVersion: 2
+        x: 5198
+        y: 101
+        width: 284
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f7c5f90a35058e0800000000000000
+      internalID: -1706772309439905940
       vertices: []
       indices: 
       edges: []
@@ -260,12 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      main menu_0: 7437685092641353733
-      main menu_1: 9134850749059203067
-      main menu_2: 4356928732326779206
-      main menu_3: -5922356773251201222
-      main menu_4: -1387997548284674578
-      main menu_5: -7956419873832106417
+      MC_Walk1-sheet 1_0: 2295736932260767695
+      MC_Walk1-sheet 1_1: 1558351979242959115
+      MC_Walk1-sheet 1_2: -3140454450603902681
+      MC_Walk1-sheet 1_3: 836199761194912589
+      MC_Walk1-sheet 1_4: 1422180742479213449
+      MC_Walk1-sheet 1_5: -3852776781563079368
+      MC_Walk1-sheet 1_6: -6961944289289195363
+      MC_Walk1-sheet 1_7: 7834586675325454004
+      MC_Walk1-sheet 1_8: -5521036290782549885
+      MC_Walk1-sheet 1_9: -1706772309439905940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

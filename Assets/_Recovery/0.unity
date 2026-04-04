@@ -607,6 +607,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
 --- !u!114 &519420033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +621,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
 --- !u!1 &594631597
+========
+--- !u!1 &566282238
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,16 +631,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
   - component: {fileID: 594631598}
   - component: {fileID: 594631600}
   - component: {fileID: 594631599}
   m_Layer: 5
   m_Name: heart1 (1)
+========
+  - component: {fileID: 566282240}
+  - component: {fileID: 566282239}
+  m_Layer: 0
+  m_Name: GameManager
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
 --- !u!224 &594631598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -657,11 +669,15 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &594631599
+========
+--- !u!114 &566282239
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
   m_GameObject: {fileID: 594631597}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -685,12 +701,36 @@ MonoBehaviour:
     height: 1
 --- !u!222 &594631600
 CanvasRenderer:
+========
+  m_GameObject: {fileID: 566282238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47d1ec20b27ce94e91247e97e2e9ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  player: {fileID: 840978308}
+  enemies: []
+--- !u!4 &566282240
+Transform:
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
   m_GameObject: {fileID: 594631597}
   m_CullTransparentMesh: 1
+========
+  m_GameObject: {fileID: 566282238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.42348, y: -6.06163, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +900,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
   m_GameObject: {fileID: 648575360}
   m_Enabled: 1
   serializedVersion: 3
@@ -901,6 +942,14 @@ BoxCollider2D:
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &671971413
+========
+--- !u!1 &840978308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8518350686678467001, guid: 5825d5aac754e574b8f6459ca3dc336f, type: 3}
+  m_PrefabInstance: {fileID: 3901230937915395572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &909249541
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1910,6 +1959,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+<<<<<<<< HEAD:Assets/_Recovery/0.unity
   - {fileID: 5662349207208108845}
   - {fileID: 1069481013}
   - {fileID: 1141958049}
@@ -1920,3 +1970,16 @@ SceneRoots:
   - {fileID: 174345451}
   - {fileID: 671971415}
   - {fileID: 1013276536}
+========
+  - {fileID: 3901230937915395572}
+  - {fileID: 372687282}
+  - {fileID: 966312018}
+  - {fileID: 1914923364}
+  - {fileID: 928422521}
+  - {fileID: 171542007}
+  - {fileID: 1962918719}
+  - {fileID: 1404958727}
+  - {fileID: 278683924}
+  - {fileID: 314780273}
+  - {fileID: 566282240}
+>>>>>>>> origin/le-ash-branch:Assets/Scenes/AngelRoomMinigame/AngleRoom.unity
